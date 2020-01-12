@@ -12,7 +12,6 @@ import javafx.scene.image.Image;
 
 public class MazeDisplayer extends Canvas{
 
-	
 	int[][] mazeDate;
 	private StringProperty wallFileName;
 	int cCol,cRow;

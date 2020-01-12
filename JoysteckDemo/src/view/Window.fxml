@@ -37,7 +37,7 @@
                <GridPane.margin>
                   <Insets bottom="10.0" left="5.0" top="10.0" />
                </GridPane.margin></Label>
-            <JoystickDisplayer fx:id="joystickDisplayer" height="201.0" width="209.0" GridPane.columnIndex="1" GridPane.rowIndex="1" joystickFileName="./resources/joystick.jpg"   />
+            <JoystickDisplayer fx:id="joystickDisplayer" height="200.0" width="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" joystickFileName="./resources/joystick.png" />
          </children>
       </GridPane>
    </left>

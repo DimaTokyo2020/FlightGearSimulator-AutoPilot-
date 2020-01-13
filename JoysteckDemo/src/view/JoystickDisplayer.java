@@ -59,7 +59,7 @@ public class JoystickDisplayer extends Canvas {
 		
 		this.xPosD=W/4;
 		this.yPosD=H/4;
-		this.radius=H/2-H/3;
+		this.radius=H/2-H/4;
 		
 		try {
 			joystick=new Image(new FileInputStream(joystickFileName.get()));
@@ -90,12 +90,11 @@ public class JoystickDisplayer extends Canvas {
 		if((Math.pow((x-xPosD),2)+Math.pow((y-yPosD),2))<Math.pow(radius,2)) {
 			setxPos(x);
 			setyPos(y);
-			
 		}
 		else {
 			double dist=Math.sqrt((Math.pow((x-xPosD),2)+Math.pow((y-yPosD),2)));
-			double xA=(x-xPos)/dist;
-			double yA=(y-yPos)/dist;
+			double xA=(x-xPosD)/dist;
+			double yA=(y-yPosD)/dist;
 			setxPos(xA*radius+xPosD);
 			setyPos(yA*radius+yPosD);
 			

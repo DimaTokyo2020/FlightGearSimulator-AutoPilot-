@@ -46,10 +46,11 @@ public class WindowController implements Initializable{
 		joystickDisplayer.setOnMouseDragged(new EventHandler <MouseEvent>() {
 	            public void handle(MouseEvent event) {
 	                /* drag was detected, start drag-and-drop gesture*/
-	                System.out.println("onDragDetected");
+	                //System.out.println("onDragDetected");
 	                
 	                
-	                	System.out.println(event.getSceneX());
+	                	//System.out.println(event.getSceneX());
+	                	//System.out.println(event.getSceneY());
 	                
 		                joystickDisplayer.moveJoysticTo(event.getSceneX()-100,event.getSceneY()-150);
 		             

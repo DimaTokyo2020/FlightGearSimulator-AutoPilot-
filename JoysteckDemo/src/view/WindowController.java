@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.MouseInfo;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,7 +53,7 @@ public class WindowController implements Initializable{
 	                	//System.out.println(event.getSceneX());
 	                	//System.out.println(event.getSceneY());
 	                
-		                joystickDisplayer.moveJoysticTo(event.getSceneX()-100,event.getSceneY()-150);
+		                joystickDisplayer.moveJoysticTo(event.getSceneX()-160,event.getSceneY()-150);
 		             
 		                joystickDisplayer.redraw();
 	                
@@ -64,6 +65,12 @@ public class WindowController implements Initializable{
                 /* drag was detected, start drag-and-drop gesture*/
                 System.out.println("onDragReleesd");
                 joystickDisplayer.setJoystickToDefultPosition();
+                try {
+					Runtime.getRuntime().exec("\"G:\\FlightGear\\FlightGear 2019.1.1");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 	}

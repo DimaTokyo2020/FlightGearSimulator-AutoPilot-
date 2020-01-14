@@ -61,6 +61,9 @@ public class JoystickDisplayer extends Canvas {
 		this.yPosD=H/4;
 		this.radius=H/2-H/4;
 		
+		
+		
+		
 		try {
 			joystick=new Image(new FileInputStream(joystickFileName.get()));
 		} catch (FileNotFoundException e) {
@@ -79,6 +82,13 @@ public class JoystickDisplayer extends Canvas {
 			xPos=xPosD;
 			yPos=yPosD;
 		}
+		
+		gc.setFill(javafx.scene.paint.Color.BLACK);
+		gc.fillOval(0,0, W, H);
+		gc.setFill(javafx.scene.paint.Color.CORNFLOWERBLUE);
+		gc.fillOval(W*0.05,H*0.05, W*0.9, H*0.9);
+		gc.setFill(javafx.scene.paint.Color.CHARTREUSE);
+		gc.fillOval(xPos,yPos, W/2, H/2);
 		gc.drawImage(joystick,xPos,yPos, W/2, H/2);
 	}
 	public void moveJoysticTo(double x, double y) {

@@ -23,7 +23,7 @@ public class Main extends Application {
 
 		FXMLLoader fxl=new FXMLLoader();
 		try {
-			BorderPane root = fxl.load(getClass().getResource("Window.fxml").openStream());
+			BorderPane root = fxl.load(getClass().getResource("Window5.fxml").openStream());
 			
 			WindowController wc=fxl.getController(); // View
 			wc.setViewModel(vm);

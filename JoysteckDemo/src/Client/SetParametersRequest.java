@@ -40,7 +40,7 @@ public class SetParametersRequest implements SpecificRequest {
 		turnOn = true;
 		stop=false;
 		PrintWriter outToServer = new PrintWriter(out);
-		BufferedReader serverInput = new BufferedReader(new InputStreamReader(in));
+		//BufferedReader serverInput = new BufferedReader(new InputStreamReader(in));
 		
 		System.out.println("inside SetParameters");
 		
@@ -59,7 +59,7 @@ public class SetParametersRequest implements SpecificRequest {
 		}
 		
 		while(!stop) {
-			if(massageToServer!=null) {
+			 if(massageToServer!=null) {
 				outToServer.println(massageToServer);
 				outToServer.flush();
 				setMassage(null);

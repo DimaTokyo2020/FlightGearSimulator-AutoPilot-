@@ -48,11 +48,7 @@ public  class ConditionCommand extends CommonCommand {
 		String condition;
 		if(isTwoSimbols) condition = code[index-1]+code[index];
 		else condition=code[index];
-		/*
-		System.out.println("condition: ");
-		System.out.println(condition);
-		System.out.println(index);
-		*/
+		
 		switch (condition) {
 		case "==": return leftRightValue[0]==leftRightValue[1];
 		case "<=": return leftRightValue[0]<=leftRightValue[1];
@@ -60,9 +56,7 @@ public  class ConditionCommand extends CommonCommand {
 		case "!=": return leftRightValue[0]!=leftRightValue[1];
 		case ">": return leftRightValue[0]>leftRightValue[1];
 		case "<": {
-			/*System.out.println("right condition case");
-			System.out.println( leftRightValue[0]+";"+leftRightValue[1]);
-			*/
+			
 			return leftRightValue[0]<leftRightValue[1];
 		}
 		default:System.out.println("eroro with cases");

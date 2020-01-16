@@ -25,17 +25,19 @@ public class WindowController implements Initializable{
 	ViewModel vm;
 	
 	@FXML
-	Slider aileron;
-	@FXML
 	Slider rudder;
+	@FXML
+	Slider throttle;
 	@FXML
 	JoystickDisplayer joystickDisplayer; 
 	//...
 	
 	public void setViewModel(ViewModel vm) {
 		this.vm=vm;
-		vm.aileron.bind(aileron.valueProperty());
+		vm.throttle.bind(throttle.valueProperty());
 		vm.rudder.bind(rudder.valueProperty());
+		vm.elevator.bind(joystickDisplayer.yBin);
+		vm.aileron.bind(joystickDisplayer.xBin);
 		
 		//...
 	}
@@ -50,8 +52,8 @@ public class WindowController implements Initializable{
 	                //System.out.println("onDragDetected");
 	                
 	                
-	                	//System.out.println(event.getSceneX());
-	                	//System.out.println(event.getSceneY());
+	                	//System.out.println("x"+event.getSceneX());
+	                	//System.out.println("y"+event.getSceneY());
 	                
 		                joystickDisplayer.moveJoysticTo(event.getSceneX()-160,event.getSceneY()-150);
 		             
@@ -65,12 +67,7 @@ public class WindowController implements Initializable{
                 /* drag was detected, start drag-and-drop gesture*/
                 System.out.println("onDragReleesd");
                 joystickDisplayer.setJoystickToDefultPosition();
-                try {
-					Runtime.getRuntime().exec("\"G:\\FlightGear\\FlightGear 2019.1.1");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+               
             }
         });
 	}

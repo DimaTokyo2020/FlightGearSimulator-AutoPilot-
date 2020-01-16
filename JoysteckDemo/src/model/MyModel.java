@@ -13,7 +13,7 @@ public class MyModel implements Model {
 
 	@Override
 	public void setRudder(double v) {
-		System.out.println("rudder "+v);
+		System.out.println("Rudder "+v);
 		sendToTheServer("/controls/flight/rudder",v);
 	}
 
@@ -26,12 +26,11 @@ public class MyModel implements Model {
 	@Override
 	public void setElevator(double v) {
 		System.out.println("elevator "+v);
-		sendToTheServer("/controls/flight/aileron",v);
+		sendToTheServer("/controls/flight/elevator",v);
 	}
 	
 	
 	public void  sendToTheServer (String path, double value) {
-		
 		
 		SetParametersRequest.getHelper().setMassage("set "+path+" "+value);
 		while(SetParametersRequest.getHelper().massageToServer!=null&&SetParametersRequest.getHelper().turnOn) {
@@ -41,7 +40,6 @@ public class MyModel implements Model {
 				e.printStackTrace();
 			}
 		}
-		
 	}
 	
 	

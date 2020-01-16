@@ -12,16 +12,12 @@ import server.FG_ClientHandler;
 
 public class VarCommand extends CommonCommand {
 
-	ArrayList<String> strArray;
 	
 	
 
 	@Override
 	public void doCommand() {
 
-		//System.out.println("Inside do comand : "+code[index-1]+","+code[index]+","+code[index+1]);
-		strArray=new ArrayList();
-		boolean isAnewVar=true;
 		
 		//case "bind"
 		//[var][throttle][=][bind]["][/controls/engines/current][-][engine/throttle]["]

@@ -67,7 +67,7 @@ public class FG_ClientHandler implements ClientHandler {
 			pathAndValueFromFG.put(this.paths[i], 0.0);
 		
 	}
-	
+	/*
 	private void initializePathsForTest() {
 		this.paths=new String[]{"simX","simY","simZ"};
 		//we need this because first time we use put
@@ -75,7 +75,7 @@ public class FG_ClientHandler implements ClientHandler {
 		for(int i=0;i<this.paths.length;i++)
 			pathAndValueFromFG.put(this.paths[i], 0.0);
 		
-	}
+	}*/
 	@Override
 	public void handleClient(InputStream in, OutputStream out) {
 		

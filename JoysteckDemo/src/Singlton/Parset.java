@@ -6,7 +6,6 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-import Client.SetParametersRequest;
 import Commands.Command;
 import Commands.CommonCommand;
 import Commands.ConditionCommand;
@@ -19,18 +18,11 @@ import Commands.SleepCommand;
 import Commands.VarCommand;
 import Utilities.HashMapOfDataServerFG;
 import server.FG_ClientHandler;
-import test.MyInterpreter;
 
 public class Parset {
 
 	
 	public Parset(){initialAllCommands();};
-	/*
-	//singleton design patterns of FG_ClientHandler
-	private static class ParsetHolder {public static final Parset helper = new Parset();}
-	public static Parset getHelper() {return ParsetHolder.helper;}
-	*/
-	
 	
 	
 	
@@ -48,7 +40,6 @@ public class Parset {
 			//will help with this (var x)
 			if(code[i].equals("var")&&!code[i+2].equals("=")) {
 				HashMapOfDataServerFG.getHelper().putVarWithoutPath(code[i+1],0.0);
-				HashMapOfDataServerFG.getHelper().print();
 			}
 			if(allCommands.containsKey(code[i]))
 			{	//x=String name command,allCommand is a HashMap of All commands
@@ -95,11 +86,7 @@ public class Parset {
 				return x;
 			}
 			
-			//print all the vaars
-			/*
-			HashMapOfDataServerFG.getHelper().print();
-			System.out.println(FG_ClientHandler.pathAndValueFromFG);
-			*/
+			
 		}
 		return 0;
 	}

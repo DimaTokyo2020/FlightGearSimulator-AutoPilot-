@@ -3,37 +3,39 @@ package view;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
 
 public class JoystickDisplayer extends Canvas {
 
 	
 
 	private StringProperty joystickFileName;
-	double x=1;
-	double y=1;
-	double xPosD=0;
-	double yPosD=0;
+	DoubleProperty xBin;
+	DoubleProperty yBin;
 	double xPos;
 	double yPos;
+	boolean firstTime=true;
+	double xPosD=0;
+	double yPosD=0;
+	
 	double radius;
-	String str="helloWorld";
 	
 	
 	
 	public JoystickDisplayer() {
 		joystickFileName=new SimpleStringProperty();
-
-		xPos=getWidth()/4;
-		yPos=getHeight()/4;
+		xBin=new SimpleDoubleProperty();
+		yBin=new SimpleDoubleProperty();
+		
+		
+		setxPos(getWidth()/4);
+		setyPos(getHeight()/4);
 	
 	}
 	
@@ -77,10 +79,10 @@ public class JoystickDisplayer extends Canvas {
 			System.out.println("problem");
 		
 		//need only for first time to put joystick in the center
-		if(x==1) {
-			x++;
-			xPos=xPosD;
-			yPos=yPosD;
+		if(firstTime==true) {
+			firstTime=false;
+			setxPos(xPosD);
+			setyPos(yPosD);
 		}
 		
 		gc.setFill(javafx.scene.paint.Color.BLACK);
@@ -114,21 +116,26 @@ public class JoystickDisplayer extends Canvas {
 	
 	public void setJoystickToDefultPosition() {
 		
-		this.xPos=this.xPosD;
-		this.yPos=this.yPosD;
+		setxPos(this.xPosD);
+		setyPos(this.yPosD);
 		redraw();
+	}
+
+	public void setxPos(double xPos) {
+		this.xPos = xPos;
+		xBin.set((this.xPos-this.xPosD)/this.radius);
+	}
+
+	public void setyPos(double yPos) {
+		this.yPos = yPos;
+		yBin.set((this.yPos-this.yPosD)/this.radius*-1);
 	}
 
 
 	
 
-	public void setxPos(double xPos) {
-		this.xPos = xPos;
-	}
+	
 
-	public void setyPos(double yPos) {
-		this.yPos = yPos;
-	}
 	
 	
 	

@@ -1,9 +1,13 @@
 package model;
 
 import Client.SetParametersRequest;
+import Singlton.Lexer;
+import Singlton.Parset;
+import view.Main;
 
 public class MyModel implements Model {
 
+	public String code=null;
 	
 	@Override
 	public void setThrottle(double v) {
@@ -29,6 +33,30 @@ public class MyModel implements Model {
 		sendToTheServer("/controls/flight/elevator",v);
 	}
 	
+	@Override
+	public void setCode(String str) {
+		this.code=str;
+	}
+	
+	@Override
+	public void doParset(Boolean b) {
+		 
+		new Thread(){
+			    public void run(){
+			    	String[] lexedStr=new Lexer().lexer(code);
+			    
+			    	try {
+						new Parset().parse(lexedStr,0,lexedStr.length);
+					} catch (InstantiationException | IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+			    }
+			    }
+		 }.start();
+			  
+
+	}
+
 	
 	public void  sendToTheServer (String path, double value) {
 		
@@ -41,7 +69,20 @@ public class MyModel implements Model {
 			}
 		}
 	}
-	
+
+	@Override
+	public void interpeterView(Boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void joysticView(Boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+		
 	
 
 }

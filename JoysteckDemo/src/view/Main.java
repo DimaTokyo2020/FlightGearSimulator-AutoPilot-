@@ -19,23 +19,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		 Thread thread = new Thread(){
-			    public void run(){
-
-					try {
-						new Parset().parse(new Lexer().lexer(getCode1()),0,new Lexer().lexer(getCode1()).length);
-					} catch (InstantiationException | IllegalAccessException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-			    }
-			    }
-		 };
-		 
-		 thread.start();
-			  
-		System.out.println("dd");
-		
-		
 		Model m=new MyModel(); // Model
 		
 		ViewModel vm=new ViewModel(m); // ViewModel
@@ -47,7 +30,7 @@ public class Main extends Application {
 			WindowController wc=fxl.getController(); // View
 			wc.setViewModel(vm);
 			
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,800,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();			
@@ -62,7 +45,7 @@ public class Main extends Application {
 	
 
 	
-	private static String getCode1() {
+	public static String getCode1() {
 		
 		return (" openDataServer 5400 10\r\n" + 
 				" connect 127.0.0.1 5402\r\n" + 

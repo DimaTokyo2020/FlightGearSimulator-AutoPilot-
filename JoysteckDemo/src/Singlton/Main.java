@@ -105,6 +105,8 @@ public class Main {
 			System.out.println(x);
 			*/
 		
+		
+		
 	}
 	
 
@@ -146,6 +148,7 @@ public class Main {
 				" sleep 250\r\n" + 
 				" }\r\n" + 
 				" print \"done\"";
+		
 	};
 	
 private static String getCode2() {

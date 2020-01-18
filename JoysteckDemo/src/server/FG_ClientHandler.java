@@ -80,7 +80,7 @@ public class FG_ClientHandler implements ClientHandler {
 	public void handleClient(InputStream in, OutputStream out) {
 		
 		this.stop=false;
-		System.out.println("inside ClientHandlerFG");
+		//System.out.println("inside ClientHandlerFG");
 		BufferedReader serverInput = new BufferedReader(new InputStreamReader(in));
 		
 		while(!stop)

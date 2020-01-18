@@ -13,7 +13,7 @@
 <?import view.JoystickDisplayer?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.WindowController">
-   <left>
+   <right>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="63.0" />
@@ -28,11 +28,11 @@
             <RowConstraints maxHeight="104.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Slider fx:id="rudder" orientation="VERTICAL" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Slider fx:id="throttle" max="1.0" orientation="VERTICAL" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" />
                </GridPane.margin></Slider>
-            <Slider fx:id="throttle" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Slider fx:id="rudder" max="1.0" min="-1.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
             <GridPane.margin>
                   <Insets left="-50.0" right="45.0" />
                   </GridPane.margin></Slider>
@@ -56,7 +56,7 @@
                <font>
                   <Font size="24.0" />
                </font></Label>
-             <JoystickDisplayer fx:id="joystickDisplayer" height="170.0" width="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" joystickFileName="./resources/joystick.png" >
+            <JoystickDisplayer fx:id="joystickDisplayer" height="170.0" width="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" joystickFileName="./resources/joystick.png" >
             <GridPane.margin>
                   <Insets left="50.0" />
                   </GridPane.margin></JoystickDisplayer>
@@ -79,5 +79,24 @@
                </padding></Label>
          </children>
       </GridPane>
-   </left>
+   </right>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="46.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="154.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="274.0" minHeight="10.0" prefHeight="274.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="132.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <RadioButton fx:id="autopilot" mnemonicParsing="false" onAction="#turnOnInterpeter" text="Autopilot" GridPane.columnIndex="1" />
+            <RadioButton fx:id="manual" mnemonicParsing="false" onAction="#turnOnManual" text="Manual" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#Parset" prefHeight="31.0" prefWidth="94.0" text="Start" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextArea fx:id="codeForInterpeter" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </center>
 </BorderPane>

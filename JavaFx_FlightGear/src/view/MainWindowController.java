@@ -32,7 +32,7 @@ public class MainWindowController implements Initializable //extends Observable 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		mazeDisplayer.setMazeDate(mazeData);
 		
-		mazeDisplayer.addEventFilter(MouseEvent.MOUSE_CLICKED, (e)->mazeDisplayer.requestFocus());
+		mazeDisplayer.addEventFilter(MouseEvent.MOUSE_CLICKED, (e)->mazeDisplayer.setVisible(false));
 	
 		mazeDisplayer.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			
@@ -58,7 +58,6 @@ public class MainWindowController implements Initializable //extends Observable 
 	
 	public void start() {
 		
-		System.out.println("start");
 	}
 
 	public void openFile() {

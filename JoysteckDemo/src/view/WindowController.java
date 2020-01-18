@@ -1,23 +1,15 @@
 package view;
 
-import java.awt.MouseInfo;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
-import javafx.stage.Stage;
 import view_model.ViewModel;
 
 public class WindowController implements Initializable{
@@ -30,6 +22,12 @@ public class WindowController implements Initializable{
 	Slider throttle;
 	@FXML
 	JoystickDisplayer joystickDisplayer; 
+	@FXML
+	TextArea codeForInterpeter; 
+	@FXML
+	RadioButton manual; 
+	@FXML
+	RadioButton autopilot;
 	//...
 	
 	public void setViewModel(ViewModel vm) {
@@ -38,7 +36,12 @@ public class WindowController implements Initializable{
 		vm.rudder.bind(rudder.valueProperty());
 		vm.elevator.bind(joystickDisplayer.yBin);
 		vm.aileron.bind(joystickDisplayer.xBin);
-		
+		vm.codeForInterpeter.bind(codeForInterpeter.textProperty());
+		//to strat with off visible
+		joystickDisplayer.setVisible(false);
+		rudder.setDisable(true);
+		throttle.setDisable(true);
+		codeForInterpeter.setDisable(true);
 		//...
 	}
 	@Override
@@ -70,6 +73,34 @@ public class WindowController implements Initializable{
                
             }
         });
+		
+		
+		
 	}
 	
+		public void turnOnManual() {
+			if(manual.isSelected()) {
+				joystickDisplayer.setVisible(true);
+				rudder.setDisable(false);
+				throttle.setDisable(false);
+			}
+			else {
+				joystickDisplayer.setVisible(false);
+				rudder.setDisable(true);
+				throttle.setDisable(true);
+			}
+		}
+		
+		public void turnOnInterpeter() {
+			if(autopilot.isSelected())
+				codeForInterpeter.setDisable(false);
+			else 
+				codeForInterpeter.setVisible(true);
+		}
+	
+		
+		public void Parset() {
+			
+			
+		}
 }

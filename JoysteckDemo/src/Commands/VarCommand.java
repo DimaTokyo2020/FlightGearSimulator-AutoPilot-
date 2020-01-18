@@ -64,13 +64,13 @@ public class VarCommand extends CommonCommand {
 		//[rudder] [=] [(] [h0] [–] [heading] [)] [/] [20]
 		else if (!code[index+1].equals("bind")&(index-2)!=-1) {
 			if(code[index-2].equals("var")) 
-				HashMapOfDataServerFG.getHelper().putVarWithoutPath(name,connectExpretionAndConvertToDouble(code, index, "\r"));
+				HashMapOfDataServerFG.getHelper().putVarWithoutPath(name,connectExpretionAndConvertToDouble(code, index, "\n"));
 			else//[rudder] [=] [(] [h0] [–] [heading] [)] [/] [20] 
-				sendToTheServer(name,connectExpretionAndConvertToDouble(code, index, "\r"));
+				sendToTheServer(name,connectExpretionAndConvertToDouble(code, index, "\n"));
 			}
 		//[rudder] [=] [(] [h0] [–] [heading] [)] [/] [20]
 		else {
-			sendToTheServer(name, connectExpretionAndConvertToDouble(code, index, "\r"));	
+			sendToTheServer(name, connectExpretionAndConvertToDouble(code, index, "\n"));	
 		}
 	}
 

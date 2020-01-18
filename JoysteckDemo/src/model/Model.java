@@ -6,5 +6,8 @@ public interface Model {
 	void setRudder(double v);
 	void setAileron(double v);
 	void setElevator(double v);
-	
+	void setCode(String str);
+	void doParset(Boolean b);
+	void interpeterView(Boolean b);
+	void joysticView(Boolean b);
 }

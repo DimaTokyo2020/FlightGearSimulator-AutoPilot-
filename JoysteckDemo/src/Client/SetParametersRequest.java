@@ -42,7 +42,7 @@ public class SetParametersRequest implements SpecificRequest {
 		PrintWriter outToServer = new PrintWriter(out);
 		//BufferedReader serverInput = new BufferedReader(new InputStreamReader(in));
 		
-		System.out.println("inside SetParameters");
+		//System.out.println("inside SetParameters");
 		
 		//need for FG for autostart
 		outToServer.println("nasal \r\n" + 
@@ -53,22 +53,18 @@ public class SetParametersRequest implements SpecificRequest {
 		outToServer.flush();
 		try {
 			Thread.sleep(15000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		} catch (InterruptedException e1) {e1.printStackTrace();}
 		
 		while(!stop) {
 			 if(massageToServer!=null) {
 				outToServer.println(massageToServer);
 				outToServer.flush();
+				System.out.println(massageToServer);
 				setMassage(null);
 			}
 			try {
 				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			} catch (InterruptedException e) {e.printStackTrace();}
 
 	}
 		turnOn=false;

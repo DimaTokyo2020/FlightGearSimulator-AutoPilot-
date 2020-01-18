@@ -28,7 +28,6 @@ public  class ConditionCommand extends CommonCommand {
 		leftAndRight[0]=connectExpretionAndConvertToDouble(code, start, code[index]);
 		index++;//to check what we have in the second place
 		//<,>,=,!
-		System.out.println(code[index]);
 		
 		//!=,==,=<,=>
 		if(code[index].equals("<")||code[index].equals(">")||code[index].equals("=")||code[index].equals("!")) {

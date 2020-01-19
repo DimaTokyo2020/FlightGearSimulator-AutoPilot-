@@ -41,8 +41,9 @@ public abstract class CommonCommand implements Command {
 			
 			
 			SetParametersRequest.getHelper().setMassage("set "+HashMapOfDataServerFG.getHelper().getPath(name) + " "+value);
-			//System.out.println("@@@set "+HashMapOfDataServerFG.getHelper().getPath(name) + " "+value);
-			while(SetParametersRequest.getHelper().massageToServer!=null&&SetParametersRequest.getHelper().turnOn) {
+			System.out.println("@@@set "+HashMapOfDataServerFG.getHelper().getPath(name) + " "+value);
+			//for exe 4 need add to while && "&&SetParametersRequest.getHelper().turnOn"
+			while(SetParametersRequest.getHelper().massageToServer!=null) {
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
@@ -50,7 +51,7 @@ public abstract class CommonCommand implements Command {
 				}
 			}
 			HashMapOfDataServerFG.getHelper().updateValue(name,value);
-			//System.out.println("sent");
+			System.out.println("sent");
 		}
 
 

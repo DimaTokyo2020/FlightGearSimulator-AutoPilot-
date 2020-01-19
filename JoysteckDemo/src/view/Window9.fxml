@@ -66,10 +66,16 @@
                </GridPane.margin>
                <font>
                   <Font size="24.0" />
-               </font></Label>
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="-30.0" top="50.0" />
+               </padding></Label>
             <Label rotate="90.0" text="&lt;-Elevator-&gt;" GridPane.columnIndex="3" GridPane.rowIndex="1">
             <GridPane.margin>
-                  <Insets left="-45.0" />
+                  <Insets left="-80.0" />
                   </GridPane.margin>
                <font>
                   <Font size="24.0" />
@@ -77,14 +83,22 @@
                <padding>
                   <Insets left="-30.0" />
                </padding></Label>
+            <RadioButton fx:id="manual" mnemonicParsing="false" onAction="#turnOnManual" prefHeight="21.0" prefWidth="134.0" text="Manual" GridPane.columnIndex="2">
+               <opaqueInsets>
+                  <Insets bottom="20.0" right="50.0" top="100.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" top="-20.0" />
+               </padding>
+            </RadioButton>
          </children>
       </GridPane>
    </right>
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="46.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="154.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="4.0" prefWidth="4.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="196.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -92,10 +106,15 @@
           <RowConstraints maxHeight="132.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <RadioButton fx:id="autopilot" mnemonicParsing="false" onAction="#turnOnInterpeter" text="Autopilot" GridPane.columnIndex="1" />
-            <RadioButton fx:id="manual" mnemonicParsing="false" onAction="#turnOnManual" text="Manual" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#Parset" prefHeight="31.0" prefWidth="94.0" text="Start" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextArea fx:id="codeForInterpeter" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <RadioButton fx:id="autopilot" mnemonicParsing="false" onAction="#turnOnInterpeter" text="Autopilot" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin></RadioButton>
+            <Button mnemonicParsing="false" onAction="#Parset" prefHeight="31.0" prefWidth="94.0" text="Start" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin></Button>
+            <TextArea fx:id="codeForInterpeter" prefHeight="274.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>

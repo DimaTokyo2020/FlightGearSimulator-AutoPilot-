@@ -16,7 +16,7 @@ public class SetParametersRequest implements SpecificRequest {
 	public String massageFromServer=null;
 	PrintWriter outToServer;
 	BufferedReader serverInput;
-	public boolean turnOn = false;//if there is a server that wait for our massage
+	public  boolean turnOn = false;//if there is a server that wait for our massage
 	
 	
 	private SetParametersRequest(){};

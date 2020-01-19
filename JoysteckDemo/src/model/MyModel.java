@@ -1,14 +1,20 @@
 package model;
 
+import java.util.Observable;
+
 import Client.SetParametersRequest;
 import Singlton.Lexer;
 import Singlton.Parset;
-import view.Main;
 
-public class MyModel implements Model {
+public class MyModel extends Observable implements Model {
 
 	public String code=null;
+	public MyModel() {
+
 	
+	
+	
+	}
 	@Override
 	public void setThrottle(double v) {
 		System.out.println("throttel "+v);
@@ -39,22 +45,16 @@ public class MyModel implements Model {
 	}
 	
 	@Override
-	public void doParset(Boolean b) {
+	public void doParset() {
 		 
 		new Thread(){
 			    public void run(){
 			    	String[] lexedStr=new Lexer().lexer(code);
-			    
 			    	try {
 						new Parset().parse(lexedStr,0,lexedStr.length);
-					} catch (InstantiationException | IllegalAccessException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-			    }
+					} catch (InstantiationException | IllegalAccessException e1) {e1.printStackTrace();}
 			    }
 		 }.start();
-			  
-
 	}
 
 	
@@ -64,9 +64,7 @@ public class MyModel implements Model {
 		while(SetParametersRequest.getHelper().massageToServer!=null&&SetParametersRequest.getHelper().turnOn) {
 			try {
 				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			} catch (InterruptedException e) {e.printStackTrace();}
 		}
 	}
 
@@ -81,6 +79,9 @@ public class MyModel implements Model {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
 
 		
 	

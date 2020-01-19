@@ -1,10 +1,7 @@
 package Singlton;
 
-import java.io.IOException;
 import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.HashMap;
-import java.util.Map;
 
 import Commands.Command;
 import Commands.CommonCommand;
@@ -31,7 +28,6 @@ public class Parset {
 
 	
 	
-	
 	public int parse (String[] code,int start,int end) throws InstantiationException, IllegalAccessException {
 		
 		
@@ -50,12 +46,12 @@ public class Parset {
 					while(!code[i].equals("}"))i++;
 					i++;
 				}
+				
 				}
 		}
 		
 		while(!commandLL.isEmpty()) {
 			//need be change to peekFirst
-			
 			if(commandLL.peekFirst().getClass().toString().equals("class Commands.DataServerCommand")) {
 				commandLL.pollFirst().doCommand();
 				try {

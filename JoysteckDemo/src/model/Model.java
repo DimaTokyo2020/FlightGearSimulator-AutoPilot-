@@ -7,7 +7,8 @@ public interface Model {
 	void setAileron(double v);
 	void setElevator(double v);
 	void setCode(String str);
-	void doParset(Boolean b);
+	void doParset();
 	void interpeterView(Boolean b);
 	void joysticView(Boolean b);
+
 }

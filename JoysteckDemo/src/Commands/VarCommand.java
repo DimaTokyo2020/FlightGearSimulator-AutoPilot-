@@ -1,14 +1,7 @@
 package Commands;
 
-import java.util.ArrayList;
 
-import Client.SetParametersRequest;
-import Expression.ExpressionConvertor;
-import Expression.RegularVar;
-import Expression.VarsHashMap;
-import Singlton.Main;
 import Utilities.HashMapOfDataServerFG;
-import server.FG_ClientHandler;
 
 public class VarCommand extends CommonCommand {
 

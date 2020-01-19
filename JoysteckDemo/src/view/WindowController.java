@@ -3,6 +3,8 @@ package view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +17,7 @@ import view_model.ViewModel;
 public class WindowController implements Initializable{
 	
 	ViewModel vm;
-	
+	int i=0;
 	@FXML
 	Slider rudder;
 	@FXML
@@ -29,8 +31,8 @@ public class WindowController implements Initializable{
 	@FXML
 	RadioButton autopilot;
 	//...
-	
 	public void setViewModel(ViewModel vm) {
+		
 		this.vm=vm;
 		vm.throttle.bind(throttle.valueProperty());
 		vm.rudder.bind(rudder.valueProperty());
@@ -58,7 +60,7 @@ public class WindowController implements Initializable{
 	                	//System.out.println("x"+event.getSceneX());
 	                	//System.out.println("y"+event.getSceneY());
 	                
-		                joystickDisplayer.moveJoysticTo(event.getSceneX()-160,event.getSceneY()-150);
+		                joystickDisplayer.moveJoysticTo(event.getSceneX()-535,event.getSceneY()-150);
 		             
 		                joystickDisplayer.redraw();
 	                
@@ -92,15 +94,17 @@ public class WindowController implements Initializable{
 		}
 		
 		public void turnOnInterpeter() {
+			
 			if(autopilot.isSelected())
 				codeForInterpeter.setDisable(false);
 			else 
-				codeForInterpeter.setVisible(true);
+				codeForInterpeter.setDisable(true);;
+			
 		}
 	
 		
 		public void Parset() {
-			
+			vm.vm_parset();
 			
 		}
 }

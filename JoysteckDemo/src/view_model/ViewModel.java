@@ -1,19 +1,22 @@
 package view_model;
 
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import model.Model;
 
 
 public class ViewModel {
 	public DoubleProperty throttle,rudder,aileron,elevator;
-	public StringProperty codeForInterpeter;
+	public StringProperty codeForInterpeter,d;
 	public BooleanProperty autopilot,manual; 
+	public IntegerProperty line;
+	public boolean first = true;
 	Model m;
 	public ViewModel(Model m) {
 		this.m=m;
@@ -22,6 +25,7 @@ public class ViewModel {
 		aileron=new SimpleDoubleProperty();
 		elevator=new SimpleDoubleProperty();
 		codeForInterpeter=new SimpleStringProperty();
+		line=new SimpleIntegerProperty();
 		
 		// when these values change, change the model values as well.		
 		throttle.addListener((o,old,nw)->m.setThrottle(nw.doubleValue()));
@@ -29,8 +33,11 @@ public class ViewModel {
 		aileron.addListener((o,old,nw)->m.setAileron(nw.doubleValue()));
 		elevator.addListener((o,old,nw)->m.setElevator(nw.doubleValue()));
 		codeForInterpeter.addListener((o,old,nw)->m.setCode(nw));
-		//autopilot.addListener((o,old,nw)->m.interpeterView(nw));
-		//manual.addListener((o,old,nw)->m.joysticView(nw));
-				// when the model changes values it sends FlightGear the associated commands
+		
+		
+		
+	
 	}
+	public void vm_parset() {m.doParset();}
 }
+

@@ -52,7 +52,7 @@ public class SetParametersRequest implements SpecificRequest {
 		outToServer.println("");
 		outToServer.flush();
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(9000);
 		} catch (InterruptedException e1) {e1.printStackTrace();}
 		
 		while(!stop) {

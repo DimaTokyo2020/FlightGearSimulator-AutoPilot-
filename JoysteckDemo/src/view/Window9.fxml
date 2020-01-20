@@ -56,7 +56,7 @@
                <font>
                   <Font size="24.0" />
                </font></Label>
-            <JoystickDisplayer fx:id="joystickDisplayer" height="170.0" width="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" joystickFileName="./src/view/joystick.png" >
+            <JoystickDisplayer fx:id="joystickDisplayer" height="170.0" width="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1"  >
             <GridPane.margin>
                   <Insets left="50.0" />
                   </GridPane.margin></JoystickDisplayer>

@@ -63,7 +63,7 @@ public class Parset {
 				while(FG_ClientHandler.getHelper().pathAndValueFromFG.get(("/instrumentation/slip-skid-ball/indicated-slip-skid"))==0.0) {}
 				//to give time to turn on autoStart
 				try {
-					Thread.sleep(15000);
+					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

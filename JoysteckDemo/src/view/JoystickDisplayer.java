@@ -65,19 +65,19 @@ public class JoystickDisplayer extends Canvas {
 		
 		
 		
-		
+		/*
 		try {
 			joystick=new Image(new FileInputStream(joystickFileName.get()));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		gc.clearRect(0, 0, W, H);
-		
+		/*
 		if(joystick==null)
 			System.out.println("problem");
-		
+		*/
 		//need only for first time to put joystick in the center
 		if(firstTime==true) {
 			firstTime=false;
@@ -89,9 +89,10 @@ public class JoystickDisplayer extends Canvas {
 		gc.fillOval(0,0, W, H);
 		gc.setFill(javafx.scene.paint.Color.CORNFLOWERBLUE);
 		gc.fillOval(W*0.05,H*0.05, W*0.9, H*0.9);
-		gc.setFill(javafx.scene.paint.Color.CHARTREUSE);
+		gc.setFill(javafx.scene.paint.Color.BLACK);
 		gc.fillOval(xPos,yPos, W/2, H/2);
-		gc.drawImage(joystick,xPos,yPos, W/2, H/2);
+		//gc.drawImage(joystick,xPos,yPos, W/2, H/2);
+	
 	}
 	public void moveJoysticTo(double x, double y) {
 		

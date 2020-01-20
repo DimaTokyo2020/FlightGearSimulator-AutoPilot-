@@ -1,7 +1,3 @@
 /view/
-/model/
-/Commands/
-/Singlton/
+/resources/
 /server/
-/Client/
-/view_model/

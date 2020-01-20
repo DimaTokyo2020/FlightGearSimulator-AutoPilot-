@@ -75,8 +75,11 @@ public  class ConditionCommand extends CommonCommand {
 		this.leftRightValue=getLeftAndRightValue();
 		//maybe mistake outofbounce
 		while(!code[start].equals("{"))start++;
+		
 		end=start;
+		
 		while(!code[end].equals("}"))end++;
+		
 			
 		if(theCondition.equals("while"))
 			while(theCondition(this.leftRightValue)) {

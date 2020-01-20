@@ -67,7 +67,7 @@ public class Parset {
 			
 			if(commandLL.peekFirst().getClass().toString().equals("class Commands.DataServerCommand")) {
 				commandLL.pollFirst().doCommand();
-				try {
+				/*try {
 					Thread.sleep(10000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -80,7 +80,7 @@ public class Parset {
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
 			}
 		
 			
@@ -90,6 +90,8 @@ public class Parset {
 			//need to give time for FG to connect our server
 			
 			else {
+				HashMapOfDataServerFG.getHelper().print();
+				System.out.println(FG_ClientHandler.pathAndValueFromFG);
 				int x=(int) ReturnCommand.connectExpretionAndConvertToDouble(code,((CommonCommand)commandLL.pollFirst()).index,"\r");
 				
 				return x;

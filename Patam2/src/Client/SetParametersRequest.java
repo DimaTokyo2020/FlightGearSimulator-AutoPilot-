@@ -43,7 +43,7 @@ public class SetParametersRequest implements SpecificRequest {
 		BufferedReader serverInput = new BufferedReader(new InputStreamReader(in));
 		
 		System.out.println("inside SetParameters");
-		
+		/*
 		//need for FG for autostart
 		outToServer.println("nasal \r\n" + 
 					"c172p.autostart(); \r\n" + 
@@ -57,7 +57,7 @@ public class SetParametersRequest implements SpecificRequest {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+		*/
 		while(!stop) {
 			if(massageToServer!=null) {
 				outToServer.println(massageToServer);

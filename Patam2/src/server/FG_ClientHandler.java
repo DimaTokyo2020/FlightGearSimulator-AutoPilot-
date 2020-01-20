@@ -22,7 +22,7 @@ public class FG_ClientHandler implements ClientHandler {
 	String[] splitedArray;
 	
 	//need to be changed to initializePath() when used with FG
-	private FG_ClientHandler() {initializePaths();}
+	private FG_ClientHandler() {initializePathsForTest();}
 	
 	//singleton design patterns of FG_ClientHandler
 	private static class FG_ClientHandlerHolder {public static final FG_ClientHandler helper = new FG_ClientHandler();}
@@ -91,7 +91,11 @@ public class FG_ClientHandler implements ClientHandler {
 			if(fromServerValue!=null)
 			splitedArray=fromServerValue.split(",");
 			//System.out.println(splitedArray.length);
-			if(splitedArray.length==25)//for test= 25\3
+			if(splitedArray==null) {
+				stop=true;
+				continue;
+			}
+			if(splitedArray.length==3)//for test= 25\3
 				for(int i=0;i<splitedArray.length;i++)//we insert to our hashMap <the path, and the value>
 					pathAndValueFromFG.replace(this.paths[i],Double.parseDouble(splitedArray[i]));
 			Thread.sleep(1000/timePerSecond);

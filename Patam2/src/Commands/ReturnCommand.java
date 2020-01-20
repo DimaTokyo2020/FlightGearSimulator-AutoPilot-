@@ -8,8 +8,9 @@ public class ReturnCommand extends CommonCommand {
 	@Override
 	public void doCommand() {
 		//duplicated code need to change
+		System.out.println("**"+Double.toString(connectExpretionAndConvertToDouble(code, index, "\r")));
 		SetParametersRequest.getHelper().setMassage(Double.toString(connectExpretionAndConvertToDouble(code, index, "\r")));
-
+		
 		
 		while(SetParametersRequest.getHelper().massageToServer!=null) {
 			try {

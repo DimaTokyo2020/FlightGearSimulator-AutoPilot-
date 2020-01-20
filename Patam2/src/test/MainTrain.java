@@ -14,7 +14,6 @@ public class MainTrain {
 		String[] test1={
 				"return "+rand+" * 5 - (8+2)"	
 		};
-		System.out.println("result: "+MyInterpreter.interpret(test1));
 		if(MyInterpreter.interpret(test1)!=rand*5-(8+2))
 			System.out.println("failed test1 (-20)");
 
@@ -27,7 +26,7 @@ public class MainTrain {
 		
 		if(MyInterpreter.interpret(test2)!=rand+3)
 			System.out.println("failed test2 (-20)");
-
+		
 		String[] test3={
 				"connect 127.0.0.1 "+port,//
 				"var x",//
@@ -40,7 +39,7 @@ public class MainTrain {
 		
 		if(MyInterpreter.interpret(test3)!=rand*2)
 			System.out.println("failed test3 (-20)");
-
+		
 		String[] test4={
 				"openDataServer "+ (port+1)+" 10",
 				"connect 127.0.0.1 "+port,
@@ -52,9 +51,11 @@ public class MainTrain {
 				"return x+y*z"	
 		};
 		
-		if(MyInterpreter.interpret(test4)!=sim.simX+sim.simY*sim.simZ)
+		double result=MyInterpreter.interpret(test4);
+		if(result!=sim.simX+sim.simY*sim.simZ)
 			System.out.println("failed test4 (-20)");
-
+		System.out.println(result);
+		System.out.println(sim.simX+","+sim.simY+","+sim.simZ);
 		String[] test5={
 				"var x = 0",
 				"var y = "+rand,
